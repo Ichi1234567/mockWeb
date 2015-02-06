@@ -19,10 +19,14 @@ GEM
       compass (>= 0.10.0)
     ffi (1.9.6)
     multi_json (1.10.1)
+    rainbow (2.0.0)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     sass (3.4.11)
+    scss-lint (0.33.0)
+      rainbow (~> 2.0)
+      sass (~> 3.4.1)
 
 PLATFORMS
   ruby
@@ -31,3 +35,4 @@ DEPENDENCIES
   compass (~> 1.0.3)
   compass-rgbapng
   sass
+  scss-lint (~> 0.33.0)
