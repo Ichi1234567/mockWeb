@@ -1,0 +1,10 @@
+{
+  "name": "web-app",
+  "dependencies": {
+    "es6-shim": "~0.23.0",
+    "jquery": "~2.0.2",
+    "bootstrap": "3.3.2",
+    "react": "0.12.2",
+    "fluxxor": "1.5.2"
+  }
+}

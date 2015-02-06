@@ -1,0 +1,12 @@
+logs
+dist
+.dist
+
+nom-debug.logs
+node_modules
+bower_components
+**/bower_components
+.sass-cache
+.tmp
+.DS_Store
+build
