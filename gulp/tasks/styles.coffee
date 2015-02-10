@@ -2,7 +2,7 @@ gulp = require 'gulp'
 # Load plugins
 $ = require('gulp-load-plugins')()
 
-gulp.task 'styles:build', [ 'scsslint' ], ->
+gulp.task 'styles', [ 'scsslint' ], ->
   gulp
     .src('app/styles/**/*.scss')
     .pipe($.compass(
@@ -18,7 +18,7 @@ gulp.task 'styles:build', [ 'scsslint' ], ->
     )
     .pipe(gulp.dest('dist/styles'))
 
-gulp.task 'styles', [ 'scsslint' ], ->
+gulp.task 'styles:server', [ 'scsslint' ], ->
   gulp
     .src('app/styles/**/*.scss')
     .pipe($.compass(

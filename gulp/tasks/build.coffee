@@ -9,7 +9,7 @@ gulp.task 'build', (cb) ->
     [
       'browserify'
       'styles:build'
-      # 'images'
+      'images'
       'fonts'
     ]
     'html'

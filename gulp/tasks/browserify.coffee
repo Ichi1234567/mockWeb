@@ -49,10 +49,8 @@ gulp.task 'browserify', [ 'coffeelint' ], ->
     .pipe(bundleApp())
 
 
-gulp.task 'browserify:watch', ['clean-js'], ->
+gulp.task 'browserify:watch', [ 'clean-js' ], ->
   gulp
     .src('app/scripts/*.coffee')
     .pipe(bundleApp('watch'))
-
-
 
