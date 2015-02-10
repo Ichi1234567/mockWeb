@@ -8,7 +8,7 @@ gulp.task 'build', (cb) ->
     'clean'
     [
       'browserify'
-      'styles:build'
+      'styles'
       'images'
       'fonts'
     ]
