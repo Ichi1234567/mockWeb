@@ -9,6 +9,7 @@
     "fluxxor": "1.5.2"
   },
   "devDependencies": {
-    "roughdraft.js": "~0.1.5"
+    "Faker": "~2.1.2",
+    "moment": "2.9.0"
   }
 }

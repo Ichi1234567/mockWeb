@@ -12,37 +12,21 @@
   </head>
   <body>
     <div id="widget"></div>
-    <section>
-      <h3>
-        <a href="https://github.com/ndreckshage/roughdraft.js">roughdraft.js</a>
-      </h3>
-      <div class="col-xs-12 col-md-4" data-draft-repeat="30">
-        <img data-draft-image="300/300" />
-        <div>
-          <p data-draft-text="1/s"></p>
-          <span data-draft-user="first"></span>
-          <span data-draft-user="state"></span>
-          <i data-draft-date="F-r"></i>
-          <button class="btn" data-draft-number="$/2-3"></button>
-        </div>
-      </div>
-    </section>
+    @@include('./tmpls/faker.html')
+
+
     <!-- build:js scripts/lib.js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/es6-shim/es6-shim.js"></script>
     <script src="bower_components/es6-shim/es6-sham.js"></script>
     <script src="bower_components/react/react-with-addons.js"></script>
     <script src="bower_components/fluxxor/build/fluxxor.js"></script>
-    <script src="bower_components/roughdraft.js/jquery.roughdraft.min.js"></script>
+    <script src="bower_components/Faker/build/build/faker.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
     <!-- endbuild -->
 
     <!-- build:js1({.tmp,app,dist}) scripts/main.js -->
     <script src="scripts/main-build.js"></script>
     <!-- endbuild -->
-    <script>
-      $(function(){
-        $(window).roughDraft();
-      });
-    </script>
   </body>
 </html>
