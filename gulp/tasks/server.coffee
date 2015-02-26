@@ -15,7 +15,7 @@ gulp.task('server', [ 'connect', 'clean:tmp' ], ->
   gulp.start 'browserify:watch'
   # server
   gulp.start 'build:server'
-  gulp.watch 'app/*.html', [ 'build:server' ]
+  gulp.watch 'app/**/*.html', [ 'build:server' ]
 
   $.watch [
     '.tmp/images/**/*'

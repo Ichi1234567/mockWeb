@@ -32,6 +32,7 @@
     "gulp-rimraf": "~0.1.1",
     "gulp-shell": "~0.2.10",
     "gulp-scss-lint": "~0.1.6",
+    "gulp-file-include": "~0.8.0",
     "gulp-template": "~2.1.0",
     "gulp-util": "~3.0.3",
     "gulp-usemin": "~0.3.11",

@@ -22,5 +22,9 @@ gulp.task 'build', (cb) ->
 gulp.task 'build:server', ->
   gulp
     .src('app/*.html')
+    .pipe($.fileInclude({
+      prefix: '@@'
+      basepath: '@file'
+    }))
     .pipe(gulp.dest('.tmp'))
 

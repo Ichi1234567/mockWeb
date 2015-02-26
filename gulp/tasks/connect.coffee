@@ -10,6 +10,6 @@ gulp.task 'connect', ->
       'app'
       '.'
     ]
-    port: 8080
+    port: 8000
     livereload: true
   )
