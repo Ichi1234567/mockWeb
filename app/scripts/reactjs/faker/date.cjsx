@@ -26,6 +26,8 @@ module.exports =
     DateFact = React.createFactory FakerDate
     info = elm.getAttribute 'data-faker-date'
     format = elm.getAttribute 'format'
+    elm.removeAttribute 'data-faker-date'
+    elm.removeAttribute 'format'
     React.render(
       DateFact(
         info: info

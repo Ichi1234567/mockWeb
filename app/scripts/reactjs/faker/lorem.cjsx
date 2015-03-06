@@ -26,6 +26,7 @@ module.exports =
   start: (elm) ->
     LoremFact = React.createFactory FakerLorem
     info = elm.getAttribute 'data-faker-lorem'
+    elm.removeAttribute 'data-faker-lorem'
     React.render(
       LoremFact(
         info: info

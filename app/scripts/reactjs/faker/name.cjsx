@@ -24,6 +24,7 @@ module.exports =
   start: (elm) ->
     NameFact = React.createFactory FakerName
     info = elm.getAttribute 'data-faker-name'
+    elm.removeAttribute 'data-faker-name'
     React.render(
       NameFact(
         info: info
