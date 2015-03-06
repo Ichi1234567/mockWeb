@@ -4,6 +4,7 @@ FakerImage = React.createClass
   displayName: 'FakerImage'
   getDefaultProps: ->
     info: React.PropTypes.string
+    classes: React.PropTypes.string
   getInitialState: ->
     {
       href: 'http://placehold.it/100x100'
@@ -26,16 +27,20 @@ FakerImage = React.createClass
   createPlacehold: (w=100, h=100) ->
     "http://placehold.it/#{w}x#{h}"
   render: ->
-    <img src={ @state.href } />
+    <img className={ @props.classes } src={ @state.href } />
 
 module.exports =
   FakerImage: FakerImage
   start: (elm) ->
     ImageFact = React.createFactory FakerImage
     info = elm.getAttribute 'data-faker-image'
+    classes = elm.getAttribute 'class'
+    elm.removeAttribute 'data-faker-image'
+    elm.removeAttribute 'class'
     React.render(
       ImageFact(
         info: info
+        classes: classes
       )
       elm
     )
