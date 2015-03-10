@@ -57,7 +57,7 @@ gulp.task 'browserify', [ 'coffeelint', 'eslint' ], ->
     .pipe(bundleApp())
 
 
-gulp.task 'browserify:watch', [ 'clean-js' ], ->
+gulp.task 'browserify:watch', [ 'clean-js', 'coffeelint', 'eslint' ], ->
   gulp
     .src([
       'app/scripts/*.js'
