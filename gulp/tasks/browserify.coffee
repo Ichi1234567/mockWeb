@@ -31,7 +31,8 @@ bundleApp = (isWatch)->
       entries: [filename]
       extensions: ['.coffee', '.cjsx', '.js', '.jsx']
     )
-    b.transform('coffee-reactify')
+    b.transform 'coffee-reactify'
+    b.transform 'reactify'
     b.transform(babelify.configure({
       extensions: [ '.js', '.es', '.es6', '.jsx', '.babel' ]
       optional: [ 'reactCompat' ]
