@@ -3,7 +3,7 @@ gulp = require 'gulp'
 # Load plugins
 $ = require('gulp-load-plugins')()
 
-gulp.task 'coffee', ['clean-js', 'coffeelint'], ->
+gulp.task 'coffee', ['clean-js', 'coffeelint', 'eslint'], ->
   gulp
     .src('app/scripts/coffee/**/*.coffee')
     .pipe($.changed('dist/scripts/coffee/'))

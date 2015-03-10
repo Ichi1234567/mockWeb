@@ -3,6 +3,7 @@ map = require 'vinyl-map'
 source = require 'vinyl-source-stream'
 browserify = require 'browserify'
 watchify = require 'watchify'
+babelify = require 'babelify'
 
 # Load plugins
 $ = require('gulp-load-plugins')()
@@ -28,9 +29,13 @@ bundleApp = (isWatch)->
       packageCache: {}
       debug: if isWatch then true else false
       entries: [filename]
-      extensions: ['.coffee', '.cjsx']
+      extensions: ['.coffee', '.cjsx', '.js', '.jsx']
     )
     b.transform('coffee-reactify')
+    b.transform(babelify.configure({
+      extensions: [ '.js', '.es', '.es6', '.jsx', '.babel' ]
+      optional: [ 'reactCompat' ]
+    }))
     bundle = ->
       b
         .on('error', $.util.log )
@@ -43,14 +48,20 @@ bundleApp = (isWatch)->
     bundle()
   )
 
-gulp.task 'browserify', [ 'coffeelint' ], ->
+gulp.task 'browserify', [ 'coffeelint', 'eslint' ], ->
   gulp
-    .src('app/scripts/*.coffee')
+    .src([
+      'app/scripts/*.js'
+      'app/scripts/*.coffee'
+    ])
     .pipe(bundleApp())
 
 
 gulp.task 'browserify:watch', [ 'clean-js' ], ->
   gulp
-    .src('app/scripts/*.coffee')
+    .src([
+      'app/scripts/*.js'
+      'app/scripts/*.coffee'
+    ])
     .pipe(bundleApp('watch'))
 

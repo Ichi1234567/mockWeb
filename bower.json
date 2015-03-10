@@ -1,7 +1,6 @@
 {
   "name": "mock-web",
   "dependencies": {
-    "es6-shim": "~0.26.1",
     "jquery": "~2.1.3",
     "bootstrap": "3.3.2",
     "fontawesome": "4.3.0",
