@@ -18,7 +18,7 @@ gulp.task 'styles', [ 'scsslint' ], ->
     )
     .pipe(gulp.dest('dist/styles'))
 
-gulp.task 'styles:server', [ 'scsslint' ], ->
+gulp.task 'styles:server', ->
   gulp
     .src('app/styles/**/*.scss')
     .pipe($.compass(
