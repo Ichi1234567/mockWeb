@@ -7,6 +7,9 @@
     "amd": true,
     "jquery": true
   },
+  "plugins": [
+    "react"
+  ],
   "globals": {
     "React": true
   },
@@ -17,6 +20,7 @@
   },
   "rules": {
     "semi": 2,
-    "new-cap": false
+    "new-cap": false,
+    "react/jsx-uses-vars": 1
   }
 }
