@@ -1,3 +1,4 @@
+path = require 'path'
 gulp = require 'gulp'
 map = require 'vinyl-map'
 source = require 'vinyl-source-stream'
@@ -24,13 +25,16 @@ bundleApp = (isWatch)->
   distPath = if isWatch then '.tmp/scripts' else 'dist/scripts'
   map( (contents, filename)->
     fname = get_name(filename)
+    dirSet = {
+      vendor: path.join(__dirname, '../../app/bower_components')
+      utils: path.join(__dirname, '../../app/scripts/reactjs/utils')
+      stores: path.join(__dirname, '../../app/scripts/reactjs/stores')
+      components: path.join(__dirname, '../../app/scripts/reactjs/components')
+    }
     pathOpts = {
-      mods: [
-        pathmodify.mod.dir('vendor', '../bower_components')
-        pathmodify.mod.dir('utils', './reactjs/utils')
-        pathmodify.mod.dir('stores', './reactjs/stores')
-        pathmodify.mod.dir('components', './reactjs/components')
-      ]
+      mods: Object.keys(dirSet).map((key) ->
+        pathmodify.mod.dir(key, dirSet[key])
+      )
     }
     b = browserify(
       cache: {}
