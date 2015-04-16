@@ -1,4 +1,4 @@
-testText = require './reactjs/components/test'
+testText = require 'components/test'
 
 widgetContainer = document.querySelector '#widget'
 if widgetContainer

@@ -2,6 +2,7 @@ gulp = require 'gulp'
 map = require 'vinyl-map'
 source = require 'vinyl-source-stream'
 browserify = require 'browserify'
+pathmodify = require 'pathmodify'
 watchify = require 'watchify'
 babelify = require 'babelify'
 
@@ -23,6 +24,14 @@ bundleApp = (isWatch)->
   distPath = if isWatch then '.tmp/scripts' else 'dist/scripts'
   map( (contents, filename)->
     fname = get_name(filename)
+    pathOpts = {
+      mods: [
+        pathmodify.mod.dir('vendor', '../bower_components')
+        pathmodify.mod.dir('utils', './reactjs/utils')
+        pathmodify.mod.dir('stores', './reactjs/stores')
+        pathmodify.mod.dir('components', './reactjs/components')
+      ]
+    }
     b = browserify(
       cache: {}
       fullPaths: false
@@ -30,7 +39,7 @@ bundleApp = (isWatch)->
       debug: if isWatch then true else false
       entries: [filename]
       extensions: ['.coffee', '.cjsx', '.js', '.jsx']
-    )
+    ).plugin(pathmodify(), pathOpts)
     b.transform 'coffee-reactify'
     b.transform 'reactify'
     b.transform(babelify.configure({
